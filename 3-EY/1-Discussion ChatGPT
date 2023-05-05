@@ -1,0 +1,6 @@
+J'ai pris les photos satellites sur planetary_computer, j'ai pris toutes les photos disponibles de la parcelle entre le jour de la récolte et 120 jours avant. A partir de ces photos satellites, j'ai filtré les nuages et les rivières. Puis j'ai retiré du calcul les nuages et les rivières et j'ai calculé le NDVI. Le nombre de photo satellite étant variable et irrégulier, comment puis-je traiter ces données de NDVI ?
+
+J'ai également la Latitude et la Longitude de la parcelle, la Saison à laquelle elles sont cultivés (soit en Avril, soit en Aout, j'ai remarqué que les rendement en Avril étaient plus élevée), j'ai également des données "Rice Crop Intensity(D=Double, T=Triple)" que je ne sais pas à quoi ils servent et le jour exacte de la récolte ainsi que la taille du champs.
+
+Je comprends tout à fait ce que tu me dis, merci. Mais pour chaque parcelle, je n'ai qu'environ que 10 données NDVI, ce qui, je pense n'est pas suffisant pour une analyse de Fourier ? Que puis-je utiliser avec si peu de données ?
+
