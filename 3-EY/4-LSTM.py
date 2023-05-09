@@ -65,7 +65,7 @@ multi = np.array([
 x = []
 y = []
 for i in range(len(df)):
-    with open(f"inputs_lstm/{i}.npy", "rb") as f:
+    with open(f"inputs_lstm_val/{i}.npy", "rb") as f:
         arr = np.load(f)
         arr = np.transpose(arr, (0, 2, 3, 1))
         arr = (arr-mini)/multi
