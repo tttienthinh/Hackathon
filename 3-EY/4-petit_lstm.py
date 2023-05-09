@@ -115,13 +115,8 @@ for layer in pretrained.layers:
     layer.trainable = False
     
 model.add(pretrained)
-model.add(MaxPooling2D())
-model.add(MaxPooling2D())
 model.add(Flatten())
-for i in range(20):
-    model.add(Dense(50))
-    if (i > 0) and (i % 5 == 0):
-        model.add(BatchNormalization(axis=1))
+model.add(Dense(10))
 model.add(Dense(2, activation="softmax"))
 model.summary()
 
