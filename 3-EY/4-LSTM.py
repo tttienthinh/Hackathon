@@ -74,7 +74,7 @@ for i in range(len(df)):
         y.append([1, 0])
     else:
         y.append([0, 1])
-x = pad_sequences(np.array(x))
+x = pad_sequences(x)
 y = np.array(y)
 # x, y = shuffle(x, y)
 
