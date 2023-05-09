@@ -6,7 +6,7 @@
 
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, LSTM, Embedding, Input, Flatten, Reshape, ConvLSTM2D, MaxPooling2D
+from tensorflow.keras.layers import Dense, LSTM, Embedding, Input, Flatten, Reshape, ConvLSTM2D, MaxPooling2D, BatchNormalization
 from tensorflow.keras.preprocessing import sequence
 from tensorflow.keras.applications import ResNet50
 from tensorflow.keras.utils import pad_sequences
@@ -138,7 +138,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 # import os
 # checkpoint = ModelCheckpoint(filepath='model.{epoch:02d}-{val_loss:.2f}.h5', monitor="val_loss", mode="min", save_best_only=True, verbose=1)
 checkpoint = ModelCheckpoint(
-    filepath='model/{epoch:02d}-{accuracy:.2f}.h5', 
+    filepath='model/lstm_profond/{epoch:02d}-{accuracy:.2f}.h5', 
     monitor="accuracy", mode="max", 
     save_best_only=True, verbose=1
 )
