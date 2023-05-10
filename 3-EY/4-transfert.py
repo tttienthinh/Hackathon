@@ -87,7 +87,7 @@ model_reg.compile(
 )
 
 checkpoint = ModelCheckpoint(
-    filepath='model/transfert/{epoch:02d}-{val_mse:.2f}.h5', 
+    filepath='model/transfert/{epoch:02d}-{val_mse:.5f}.h5', 
     monitor="mse", mode="min", 
     save_best_only=True, verbose=1
 )
