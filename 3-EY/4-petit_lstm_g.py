@@ -76,10 +76,13 @@ for i in range(len(df2)):
         y2.append([1, 0])
     else:
         y2.append([0, 1])
-        
-x = pad_sequences(x1+x2)
-y = np.array(y1+y2)
-x, y = shuffle(x, y)
+
+x1 = pad_sequences(x1, dtype="float", maxlen=32)
+y1 = np.array(y1)
+x2 = pad_sequences(x1, dtype="float", maxlen=32)
+y2 = np.array(y2)
+# x2, y2 = shuffle(x2, y2)
+
 class_weight = {
     0: 1/np.count_nonzero(y[:, 0]==1),
     1: 1/np.count_nonzero(y[:, 1]==1)
@@ -119,9 +122,9 @@ callbacks = [checkpoint]
 
 
 history = model.fit(
-    x, y, 
+    x2, y2, shuffle=True,
     batch_size=16, 
-    validation_split = 0.2,
+    validation_data = (x1, y1),
     # class_weight=class_weight,
     epochs=1_000, callbacks=callbacks
 )
