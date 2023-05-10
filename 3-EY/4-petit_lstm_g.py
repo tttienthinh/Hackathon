@@ -79,7 +79,7 @@ for i in range(len(df2)):
 
 x1 = pad_sequences(x1, dtype="float", maxlen=32)
 y1 = np.array(y1)
-x2 = pad_sequences(x1, dtype="float", maxlen=32)
+x2 = pad_sequences(x2, dtype="float", maxlen=32)
 y2 = np.array(y2)
 # x2, y2 = shuffle(x2, y2)
 
@@ -114,8 +114,8 @@ model.summary()
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 checkpoint = ModelCheckpoint(
-    filepath='model/petit_lstm_g/{epoch:02d}-{val_acc:.2f}.h5', 
-    monitor="val_acc", mode="max", 
+    filepath='model/petit_lstm_g/{epoch:02d}-{val_accuracy:.2f}.h5', 
+    monitor="val_accuracy", mode="max", 
     save_best_only=True, verbose=1
 )
 callbacks = [checkpoint]
