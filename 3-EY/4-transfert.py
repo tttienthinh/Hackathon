@@ -61,7 +61,7 @@ for i in range(len(df2)):
         x2.append(arr)
     y2.append([(df2.loc[i, "Rice Yield (kg/ha)"]-5200)/(8000-52000)])
     
-    
+
 x2 = pad_sequences(x2, dtype="float", maxlen=32)
 y2 = np.array(y2)
 
@@ -69,11 +69,12 @@ y2 = np.array(y2)
 x2, y2 = shuffle(x2, y2)
 
 model_reg = Sequential()
-model = load_model("models_finaux/petit_lstm_g/07-0.99.h5")
+model = load_model("models_finaux/petit_lstm_g/14-1.00.h5")
 model_reg.add(Input(shape=(None, 100, 100, 6)))
 for layer in model.layers[:-1]:
     layer.trainable = False
     model_reg.add(layer)
+
 model_reg.add(Dense(16))
 model_reg.add(Dense(16))
 model_reg.add(Dense(1, activation="sigmoid"))
@@ -93,7 +94,7 @@ checkpoint = ModelCheckpoint(
 callbacks = [checkpoint]
 
 
-history = model.fit(
+history = model_reg.fit(
     x2, y2,
     batch_size=16, 
     validation_split = 0.1,
