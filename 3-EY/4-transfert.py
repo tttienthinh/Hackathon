@@ -75,9 +75,9 @@ for layer in model.layers[:-1]:
     layer.trainable = False
     model_reg.add(layer)
 
-model_reg.add(Dense(16))
-model_reg.add(Dense(16))
-model_reg.add(Dense(1, activation="sigmoid"))
+model_reg.add(Dense(16, name="transfert_dense1"))
+model_reg.add(Dense(16, name="transfert_dense2"))
+model_reg.add(Dense(1 , name="transfert_dense3", activation="sigmoid"))
 model_reg.summary()
 
 model_reg.compile(
