@@ -118,7 +118,6 @@ checkpoint = ModelCheckpoint(
 callbacks = [checkpoint]
 
 
-%%time
 history = model.fit(
     x, y, 
     batch_size=16, 
