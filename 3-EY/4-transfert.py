@@ -59,7 +59,7 @@ for i in range(len(df2)):
         arr = np.transpose(arr, (0, 2, 3, 1))
         arr = (arr-mini)/multi
         x2.append(arr)
-    y2.append([(df2.loc[i, "Rice Yield (kg/ha)"]-5200)/(8000-52000)])
+    y2.append([(df2.loc[i, "Rice Yield (kg/ha)"]-5200)/(8000-5200)])
     
 
 x2 = pad_sequences(x2, dtype="float", maxlen=32)
